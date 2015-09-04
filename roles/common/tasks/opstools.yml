@@ -1,0 +1,17 @@
+############################################################
+# Common Role: opstools
+############################################################
+
+- name: yum install opstools [{{ item }}]
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - telnet
+    - wget
+    - rsync
+    - tree
+    - tcpdump
+    - sysstat
+    - dstat
+    - vim-enhanced
+    - git
+    - htop

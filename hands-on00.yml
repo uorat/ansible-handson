@@ -1,0 +1,17 @@
+---
+- hosts: webservers
+  sudo: yes
+  tasks:
+    - name: yum install opstools
+      yum: pkg={{ item }} state=installed
+      with_items:
+        - telnet
+        - wget
+        - rsync
+        - tree
+        - tcpdump
+        - sysstat
+        - dstat
+        - vim-enhanced
+        - git
+        - htop

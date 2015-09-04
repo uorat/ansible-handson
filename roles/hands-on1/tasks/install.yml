@@ -1,0 +1,10 @@
+############################################################
+# webserver: install
+############################################################
+
+- name: install nginx
+  yum: pkg=nginx state=installed
+
+- name: chkconfig nginx on
+  service: name=nginx state=started enabled=yes
+  ignore_errors: True

@@ -1,0 +1,13 @@
+############################################################
+# webserver: install
+############################################################
+
+- name: install opstools
+  yum: pkg={{item}} enablerepo=epel state=installed
+  with_items:
+    - htop
+    - glances
+    - tmux
+
+- name: install ag (the_silver_searcher)
+  yum: pkg={{ ag_url }} state=installed

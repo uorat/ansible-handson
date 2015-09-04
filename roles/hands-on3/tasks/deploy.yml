@@ -1,0 +1,7 @@
+############################################################
+# webserver: deploy
+############################################################
+
+- name: deploy html file
+  copy: src=usr/share/nginx/html/hands-on.html dest=/usr/share/nginx/html/hands-on.html
+
