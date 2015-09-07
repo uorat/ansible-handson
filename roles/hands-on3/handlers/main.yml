@@ -1,3 +1,15 @@
 ############################################################
-# __creates__
+# hands-on3: handlers
 ############################################################
+
+# tasks/swap.yml
+- name: make swap
+  command: mkswap {{ swapfile_path }}
+  when: result|failed
+
+- name: swapon
+  command: swapon {{ swapfile_path }}
+
+- name: mount swap
+  mount: name=swap src={{ swapfile_path }} fstype=swap state=present
+

@@ -3,4 +3,5 @@
 ############################################################
 
 - include: install.yml
-- include: deploy.yml
+- include: swap.yml
+# - include: deploy.yml
