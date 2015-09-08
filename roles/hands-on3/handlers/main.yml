@@ -4,11 +4,11 @@
 
 # tasks/swap.yml
 - name: make swap
-  command: mkswap {{ swapfile_path }}
+  shell: mkswap {{ swapfile_path }}
   when: result|failed
 
 - name: swapon
-  command: swapon {{ swapfile_path }}
+  shell: swapon {{ swapfile_path }}
 
 - name: mount swap
   mount: name=swap src={{ swapfile_path }} fstype=swap state=present

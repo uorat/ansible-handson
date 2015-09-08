@@ -9,5 +9,13 @@
     - glances
     - tmux
 
+- name: check installed ag
+  shell: "rpm -qa |grep the-silver-searcher"
+  register: result
+  always_run: yes
+  ignore_errors: yes
+  changed_when: no
+
 - name: install ag (the_silver_searcher)
   yum: pkg={{ ag_url }} state=installed
+  when: result|failed
