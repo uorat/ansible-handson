@@ -2,6 +2,7 @@
 # __creates__
 ############################################################
 
-deploy_dest:  /var/www/html
-virtualhost:  default
+deploy_dest:  /var/www/ansible-tutorial
+repository:   https://github.com/yteraoka/ansible-tutorial.git
+virtualhost:  ansible-tutorial.com
 nginx_port:   8080

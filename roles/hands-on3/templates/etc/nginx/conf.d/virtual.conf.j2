@@ -1,0 +1,9 @@
+server {
+    server_name {{ virtualhost }};
+    listen {{ nginx_port }};
+
+    location / {
+        root {{ deploy_dest }};
+        index  index.html index.htm;
+    }
+}

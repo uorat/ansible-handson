@@ -13,3 +13,6 @@
 - name: mount swap
   mount: name=swap src={{ swapfile_path }} fstype=swap state=present
 
+- name: restart nginx
+  service: name=nginx state=restarted
+

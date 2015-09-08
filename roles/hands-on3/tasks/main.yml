@@ -4,4 +4,4 @@
 
 - include: install.yml
 - include: swap.yml
-# - include: deploy.yml
+- include: deploy.yml

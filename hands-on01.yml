@@ -3,4 +3,4 @@
   sudo: yes
   roles:
     - common
-    - hands-on01
+    - hands-on1
