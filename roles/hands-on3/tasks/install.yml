@@ -7,7 +7,7 @@
   with_items:
     - htop
     - glances
-    - tmux
+    - ac
 
 - name: check installed ag
   shell: "rpm -qa |grep the-silver-searcher"
