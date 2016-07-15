@@ -2,20 +2,20 @@
 # webserver: install
 ############################################################
 
+- name: yum install opstools epel-release
+  yum: pkg=epel-release state=installed
+
+- name: default unabled repository
+  replace: dest=/etc/yum.repos.d/{{item}} regexp="enabled *= *1" replace="enabled=0"
+  with_items:
+    - epel.repo
+  ignore_errors: True
+
 - name: install opstools
   yum: pkg={{item}} enablerepo=epel state=installed
+  ignore_errors: True
   with_items:
     - htop
     - glances
-    - ac
-
-- name: check installed ag
-  shell: "rpm -qa |grep the-silver-searcher"
-  register: result
-  always_run: yes
-  ignore_errors: yes
-  changed_when: no
-
-- name: install ag (the_silver_searcher)
-  yum: pkg={{ ag_url }} state=installed
-  when: result|failed
+    - ack
+    - the_silver_searcher

@@ -2,20 +2,21 @@
 # webserver: install
 ############################################################
 
-- name: yum install opstools [{{ item }}]
-  yum: pkg={{ item }} state=installed
-  with_items:
-    - epel-release
-
-- name: default unabled repository
-  replace: dest=/etc/yum.repos.d/{{item}} regexp="enabled *= *1" replace="enabled=0"
-  with_items:
-    - epel.repo
+- name: check registered the repository of nginx-release
+  shell: rpm -qa | grep nginx-release
+  register: result
   ignore_errors: True
+  always_run: yes
+  changed_when: no
+
+- name: add repository nginx-release (CentOS6/CentOS7)
+  yum: name="http://nginx.org/packages/centos/{{ansible_distribution_major_version}}/noarch/RPMS/nginx-release-centos-{{ansible_distribution_major_version}}-0.el{{ansible_distribution_major_version}}.ngx.noarch.rpm"
+  when: result|failed
 
 - name: install nginx
-  yum: pkg=nginx state=installed enablerepo=epel
+  yum: name=nginx state=present
+  ignore_errors: True
 
-- name: chkconfig nginx on
-  service: name=nginx state=started enabled=yes
+- name: Start Nginx
+  service: name=nginx enabled=yes state=started
   ignore_errors: True
