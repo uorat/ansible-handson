@@ -1,3 +1,4 @@
 [webservers]
+ansible-test00
 ansible-test01
 ansible-test02
