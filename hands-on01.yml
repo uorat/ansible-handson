@@ -1,7 +1,5 @@
 ---
 - hosts: webservers
-  become: yes
-  become_user: root
   roles:
     - common
     - hands-on1
