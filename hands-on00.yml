@@ -1,10 +1,12 @@
 ---
 - hosts: webservers
-  sudo: yes
+  become: yes
+  become_user: root
   tasks:
     - name: yum install opstools
       yum: pkg={{ item }} state=installed
       with_items:
+        - epel-release
         - telnet
         - wget
         - rsync

@@ -1,6 +1,7 @@
 ---
 - hosts: webservers
-  sudo: yes
+  become: yes
+  become_user: root
   roles:
     - common
     - hands-on1
