@@ -1,6 +1,5 @@
 ---
 - hosts: webservers
-  sudo: yes
   tasks:
     - name: yum install opstools
       yum: pkg={{ item }} state=installed
@@ -14,4 +13,3 @@
         - dstat
         - vim-enhanced
         - git
-        - htop

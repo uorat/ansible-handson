@@ -1,5 +1,4 @@
 ---
 - hosts: webservers
-  sudo: yes
   roles:
     - hands-on3

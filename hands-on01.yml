@@ -1,6 +1,5 @@
 ---
 - hosts: webservers
-  sudo: yes
   roles:
     - common
     - hands-on1
