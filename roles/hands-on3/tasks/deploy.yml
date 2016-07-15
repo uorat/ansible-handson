@@ -5,6 +5,7 @@
 - name: deploy from github
   git: repo={{ repository }}
        dest={{ deploy_dest }}
+       update=no
 
 - name: edit nginx config
   template: src=etc/nginx/conf.d/virtual.conf.j2

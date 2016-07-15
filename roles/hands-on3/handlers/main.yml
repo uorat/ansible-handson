@@ -5,7 +5,6 @@
 # tasks/swap.yml
 - name: make swap
   shell: mkswap {{ swapfile_path }}
-  when: result|failed
 
 - name: swapon
   shell: swapon {{ swapfile_path }}
@@ -15,4 +14,3 @@
 
 - name: restart nginx
   service: name=nginx state=restarted
-
