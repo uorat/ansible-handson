@@ -5,7 +5,6 @@
 - name: yum install opstools [{{ item }}]
   yum: pkg={{ item }} state=installed
   with_items:
-    - epel-release
     - telnet
     - wget
     - rsync

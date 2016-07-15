@@ -2,8 +2,19 @@
 # webserver: install
 ############################################################
 
+- name: yum install opstools [{{ item }}]
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - epel-release
+
+- name: default unabled repository
+  replace: dest=/etc/yum.repos.d/{{item}} regexp="enabled *= *1" replace="enabled=0"
+  with_items:
+    - epel.repo
+  ignore_errors: True
+
 - name: install nginx
-  yum: pkg=nginx state=installed
+  yum: pkg=nginx state=installed enablerepo=epel
 
 - name: chkconfig nginx on
   service: name=nginx state=started enabled=yes
